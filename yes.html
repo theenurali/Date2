@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Yeeyy! Finally 😍</h1>
+    <p>Now let's fix a date 💕</p>
+
+    <button class="btn" onclick="sendToTelegram()">
+      Send in Telegram
+    </button>
+  </div>
+
+  <script>
+    function sendToTelegram() {
+      const username = "dossym17";
+      const text = encodeURIComponent(
+        "Я согласилась 😍 Когда  пойдем на фильм Michael Jackson?"
+      );
+
+      window.open(`https://t.me/${username}?text=${text}`, "_blank");
+    }
+  </script>
+
+</body>
+
+</html>
