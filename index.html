@@ -3,39 +3,41 @@
 
 <head>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .btn {
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Will you go to the Michael Jackson movie with me?</h1>
+    <div>
+      <h1 class="header_text">Do you wanna go out with me?</h1>
+    </div>
 
-    <button class="btn" id="yesButton" onclick="goYes()">Yes</button>
-    <button class="btn" id="noButton" onmouseover="moveNo()">No</button>
+    <div class="gif_container">
+      <img src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif" alt="Cute animated illustration" />
+    </div>
+    <div class="buttons">
+      <button class="btn" id="yesButton" onclick="redirectToPage('yes.html')">Yes</button>
+      <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+
+      <script>
+        function redirectToPage(page) {
+          window.location.href = page;
+        }
+
+        function moveButton() {
+          const noButton = document.getElementById("noButton");
+          const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+          const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+          noButton.style.left = `${x}px`;
+          noButton.style.top = `${y}px`;
+        }
+      </script>
+    </div>
   </div>
-
-  <script>
-    let scale = 1;
-
-    function goYes() {
-      window.location.href = "yes.html";
-    }
-
-    function moveNo() {
-      const no = document.getElementById("noButton");
-      const yes = document.getElementById("yesButton");
-
-      const x = Math.random() * (window.innerWidth - no.offsetWidth);
-      const y = Math.random() * (window.innerHeight - no.offsetHeight);
-
-      no.style.position = "absolute";
-      no.style.left = x + "px";
-      no.style.top = y + "px";
-
-      scale += 0.2;
-      yes.style.transform = `scale(${scale})`;
-    }
-  </script>
-
 </body>
 
 </html>
